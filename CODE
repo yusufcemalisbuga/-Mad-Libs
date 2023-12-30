@@ -1,0 +1,43 @@
+import random
+
+# Hikaye şablonları
+hikayeler = [
+    "Bugün hava çok {}. {} parka gittim ve orada bir {} gördüm.",
+    "{} bir gün {} bir {} buldu.",
+    "Bir zamanlar, {} adında bir {} vardı.",
+    # Ek hikaye şablonları
+    "{} bir {} ile {} parkta yürüyüşe çıktı.",
+    "{} bir {} almak için {} mağazasına gitti.",
+    "{} bir {} ile {} konserine gitti.",
+    "{} ve {} birlikte {} yemeye gittiler.",
+    "{} bir {} ile {} film izledi.",
+    "{} bir {} ile {} müzeye gitti.",
+    "{} bir {} ile {} kütüphaneye gitti.",
+    "{} bir {} ile {} pikniğe gitti.",
+    "{} bir {} ile {} yüzme havuzuna gitti.",
+    "{} bir {} ile {} lunaparka gitti.",
+    "{} bir {} ile {} hayvanat bahçesine gitti.",
+    # ...
+    # Daha fazla hikaye şablonu ekleyin
+]
+
+# Kelime türleri
+kelime_turleri = ["sıfat", "isim", "fiil"]
+
+# Oyun döngüsü
+while True:
+    # Rastgele bir hikaye seç
+    hikaye = random.choice(hikayeler)
+    
+    # Kullanıcıdan kelimeleri al
+    for kelime_turu in kelime_turleri:
+        kelime = input(kelime_turu + " girin: ")
+        hikaye = hikaye.replace("{}", kelime, 1)
+    
+    # Hikayeyi yazdır
+    print("\n" + hikaye + "\n")
+    
+    # Kullanıcıya devam etmek isteyip istemediğini sor
+    devam = input("Devam etmek istiyor musunuz? (evet/hayır): ")
+    if devam.lower() != "evet":
+        break
